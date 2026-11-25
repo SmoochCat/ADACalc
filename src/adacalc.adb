@@ -1,5 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
+with Mathematics;
 
 procedure Adacalc is
 Point_A : Integer;
@@ -36,7 +37,7 @@ begin
    Get (point_B);
    Skip_Line;
 
-   Put ("ELEMENT (+ | - | * | /): ");
+   Put ("ELEMENT (+ | - | * | / | d): ");
    Get (Op);
    Skip_Line;
 
@@ -48,6 +49,8 @@ begin
       Result := mul(Point_A,Point_B);
    elsif Op = '/' then
       Result := divide(Point_A,Point_B);
+   elsif Op = 'd' then
+      Result := Mathematics.degree(Point_A, Point_B);
    else
       Put_Line ("ERROR");
       return;
