@@ -7,6 +7,26 @@ Point_B : Integer;
 Op : Character;
 Result : Integer;
 
+function plus(Value_A : Integer; Value_B : Integer) return Integer is
+begin
+   return Value_A + Value_B;
+end plus;
+
+function minus(Value_A : Integer; Value_B : Integer) return Integer is
+begin
+   return Value_A - Value_B;
+end minus;
+
+function mul(Value_A : Integer; Value_B : Integer) return Integer is
+begin
+   return Value_A * Value_B;
+end mul;
+
+function divide(Value_A : Integer; Value_B : Integer) return Integer is
+begin
+   return Value_A / Value_B;
+end divide;
+
 begin
    Put ("NUMBER A: ");
    Get (point_A);
@@ -16,14 +36,18 @@ begin
    Get (point_B);
    Skip_Line;
 
-   Put ("ELEMENT (+ | -): ");
+   Put ("ELEMENT (+ | - | * | /): ");
    Get (Op);
    Skip_Line;
 
    if Op = '+' then
-      Result := Point_A + Point_B;
+      Result := plus(Point_A,Point_B);
    elsif Op = '-' then
-      Result := Point_A - Point_B;
+      Result := minus(Point_A,Point_B);
+   elsif Op = '*' then
+      Result := mul(Point_A,Point_B);
+   elsif Op = '/' then
+      Result := divide(Point_A,Point_B);
    else
       Put_Line ("ERROR");
       return;
